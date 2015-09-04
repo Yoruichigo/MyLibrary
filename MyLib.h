@@ -6,6 +6,9 @@
 
 #pragma once
 
+//リンカーインクルード
+#include "MyLibLinker.h"
+
 //メッセージボックス
 #include "./MessageBox/MyMessageBox.h"
 
