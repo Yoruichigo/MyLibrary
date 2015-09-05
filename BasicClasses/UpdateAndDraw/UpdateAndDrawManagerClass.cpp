@@ -15,13 +15,15 @@
 
 
 
-using namespace ManagerClass;
+using namespace MyLib;
+
+	
 
 //更新
 void UpdateAndDrawManagerClass::AllUpdate()
 {
 	//foreach文で全ての更新
-	for (auto data : BasicClasesList)
+	for (auto data : BasicClassesList)
 	{
 		data->Update();
 	}
@@ -31,7 +33,7 @@ void UpdateAndDrawManagerClass::AllUpdate()
 void UpdateAndDrawManagerClass::AllDraw()
 {
 	//foreach文で全ての描画
-	for (auto data : BasicClasesList)
+	for (auto data : BasicClassesList)
 	{
 		data->Draw();
 	}
@@ -39,26 +41,30 @@ void UpdateAndDrawManagerClass::AllDraw()
 
 
 //登録
-void UpdateAndDrawManagerClass::Register(std::shared_ptr<BasicClass::UpdateAndDrawClass> _RegisteredPerson)
+void UpdateAndDrawManagerClass::Register(std::shared_ptr<UpdateAndDrawClass> _RegisteredPerson)
 {
 	//データリストの末尾に登録
-	BasicClasesList.push_back(_RegisteredPerson);
+	BasicClassesList.push_back(_RegisteredPerson);
+
+	int a = (*BasicClassesList.begin()).use_count();
+
+	int b = 0;
 }
 
 
 
 //除外
-void UpdateAndDrawManagerClass::Exclusion(std::shared_ptr<BasicClass::UpdateAndDrawClass> _ExcludedPerson)
+void UpdateAndDrawManagerClass::Exclusion(std::shared_ptr<UpdateAndDrawClass> _ExcludedPerson)
 {
 	//イテレーター
-	std::list<std::shared_ptr<BasicClass::UpdateAndDrawClass> >::iterator
+	std::list<std::shared_ptr<UpdateAndDrawClass> >::iterator
 		it;
 
 	//データリストから除外するデータを検索し除外する
-	for (it = BasicClasesList.begin(); it != BasicClasesList.end();)
+	for (it = BasicClassesList.begin(); it != BasicClassesList.end();)
 	{
 		if ((*it) == _ExcludedPerson){
-			it = BasicClasesList.erase(it);
+			it = BasicClassesList.erase(it);
 		}
 		else{
 			it++;
@@ -71,7 +77,6 @@ void UpdateAndDrawManagerClass::Exclusion(std::shared_ptr<BasicClass::UpdateAndD
 //全て削除
 void UpdateAndDrawManagerClass::Clear()
 {
-	BasicClasesList.clear();
+	BasicClassesList.clear();
 }
-
 

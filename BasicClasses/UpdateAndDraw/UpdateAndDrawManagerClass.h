@@ -14,8 +14,9 @@
 
 
 
-namespace ManagerClass
+namespace MyLib
 {
+
 
 	class UpdateAndDrawManagerClass{
 	public:
@@ -29,25 +30,23 @@ namespace ManagerClass
 		void AllDraw();
 
 		//クラスの登録を行います
-		void Register(std::shared_ptr<BasicClass::UpdateAndDrawClass> _RegisteredPerson);
+		void Register(std::shared_ptr<UpdateAndDrawClass> _RegisteredPerson);
 
 		//登録してあるクラスを除外します
-		void Exclusion(std::shared_ptr<BasicClass::UpdateAndDrawClass> _ExcludedPerson);
+		void Exclusion(std::shared_ptr<UpdateAndDrawClass> _ExcludedPerson);
 
 		//登録してあるクラスを"全て"除外します
 		void Clear();
 
 		//登録データリストの取得
-		const std::list<std::shared_ptr<BasicClass::UpdateAndDrawClass> > &GetDataList(){
-			return BasicClasesList;
+		const std::list<std::shared_ptr<UpdateAndDrawClass> > &GetDataList(){
+			return BasicClassesList;
 		}
 
 	private:
 		
 		//登録データリスト
-		std::list< 
-			std::shared_ptr<BasicClass::UpdateAndDrawClass>
-				> BasicClasesList;
+		std::list< std::shared_ptr<UpdateAndDrawClass> > BasicClassesList;
 
 	};
 

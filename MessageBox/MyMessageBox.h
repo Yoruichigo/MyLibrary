@@ -13,11 +13,11 @@
 namespace MyLib
 {
 	//OKƒ{ƒ^ƒ“‚Ì‚Ý
-	void MessageBoxOK(LPCTSTR _Title,LPCTSTR _text){
+	inline void MessageBoxOK(LPCTSTR _Title,LPCTSTR _text){
 		MessageBox(NULL, _text,_Title, MB_OK);
 	}
 
-	void MessageBoxErrOK(LPCTSTR _Title, LPCTSTR _text){
+	inline void MessageBoxErrOK(LPCTSTR _Title, LPCTSTR _text){
 		MessageBox(NULL, _text, _Title, MB_OK | MB_ICONERROR);
 	}
 
